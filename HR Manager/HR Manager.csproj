@@ -272,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\ModelClass\" />
     <Folder Include="Views\Data\" />
     <Folder Include="Views\Department\" />
     <Folder Include="Views\Message\" />
