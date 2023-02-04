@@ -238,6 +238,7 @@
     <Content Include="HR_DataModel.edmx.diagram">
       <DependentUpon>HR_DataModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\ModelClass\jsconfig.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -272,7 +273,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\ModelClass\" />
     <Folder Include="Views\Data\" />
     <Folder Include="Views\Department\" />
     <Folder Include="Views\Message\" />
