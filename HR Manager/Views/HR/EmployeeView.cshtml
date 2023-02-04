@@ -1,0 +1,72 @@
+﻿@model IEnumerable<HR_Manager.TBL_HR_Employee>
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+@if (@TempData["Message"] != null)
+{
+<div class="alert alert-dismissible alert-success text-center">
+    <strong>
+        @TempData["Message"].ToString()
+    </strong>
+    <button class="btn btn-primary" onclick="this.parentElement.style.display='none'">Close</button>
+</div>
+}
+<h3>Employee List</h3>
+<p>
+    @Html.ActionLink("Create New", "EmployeeInsert")
+</p>
+<table class="table">
+    <tr class="table-success">
+        <th>
+            @Html.DisplayName("Employee ID")
+        </th>
+        <th>
+            @Html.DisplayName("First Name")
+        </th>
+        <th>
+            @Html.DisplayName("Last Name")
+        </th>
+        <th>
+            @Html.DisplayName("Department")
+        </th>
+        <th>
+            @Html.DisplayName("Date of Joining")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpRefID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpDepartment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpDOJ)
+            </td>
+            <td>
+
+                <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("EmployeeEdit", "HR", new {empid = item.EmpID })'">
+                    Edit
+                </button>
+
+                <button class="btn btn-danger" type="button" onclick="location.href='@Url.Action("EmployeeDelete", "HR", new {empid = item.EmpID })'">
+                    Delete
+                </button>
+
+            </td>
+        </tr>
+    }
+
+</table>

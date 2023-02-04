@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_HR_ManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_HR_Admin">
+          <Key>
+            <PropertyRef Name="AdminMobileNumber" />
+          </Key>
+          <Property Name="AdminUserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AdminMobileNumber" Type="bigint" Nullable="false" />
+          <Property Name="AdminEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_HR_Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_HR_Employee">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmpRefID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpFirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmpLastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmpDepartment" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmpDOJ" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_HR_Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MessageContent" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DB_HR_ManagerModelStoreContainer">
+          <EntitySet Name="TBL_HR_Admin" EntityType="Self.TBL_HR_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_HR_Department" EntityType="Self.TBL_HR_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_HR_Employee" EntityType="Self.TBL_HR_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_HR_Message" EntityType="Self.TBL_HR_Message" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_HR_ManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_HR_Admin">
+          <Key>
+            <PropertyRef Name="AdminMobileNumber" />
+          </Key>
+          <Property Name="AdminUserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminMobileNumber" Type="Int64" Nullable="false" />
+          <Property Name="AdminEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_HR_Employee">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmpRefID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpFirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmpLastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmpDepartment" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmpDOJ" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DB_HR_ManagerContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_HR_Admin" EntityType="Self.TBL_HR_Admin" />
+          <EntitySet Name="TBL_HR_Employee" EntityType="Self.TBL_HR_Employee" />
+          <EntitySet Name="TBL_HR_Message" EntityType="DB_HR_ManagerModel.TBL_HR_Message" />
+          <EntitySet Name="TBL_HR_Department" EntityType="DB_HR_ManagerModel.TBL_HR_Department" />
+        </EntityContainer>
+        <EntityType Name="TBL_HR_Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MessageContent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_HR_Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_HR_ManagerModelStoreContainer" CdmEntityContainer="DB_HR_ManagerContext">
+          <EntitySetMapping Name="TBL_HR_Admin">
+            <EntityTypeMapping TypeName="DB_HR_ManagerModel.TBL_HR_Admin">
+              <MappingFragment StoreEntitySet="TBL_HR_Admin">
+                <ScalarProperty Name="AdminUserName" ColumnName="AdminUserName" />
+                <ScalarProperty Name="AdminMobileNumber" ColumnName="AdminMobileNumber" />
+                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_HR_Employee">
+            <EntityTypeMapping TypeName="DB_HR_ManagerModel.TBL_HR_Employee">
+              <MappingFragment StoreEntitySet="TBL_HR_Employee">
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="EmpRefID" ColumnName="EmpRefID" />
+                <ScalarProperty Name="EmpFirstName" ColumnName="EmpFirstName" />
+                <ScalarProperty Name="EmpLastName" ColumnName="EmpLastName" />
+                <ScalarProperty Name="EmpDepartment" ColumnName="EmpDepartment" />
+                <ScalarProperty Name="EmpDOJ" ColumnName="EmpDOJ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_HR_Message">
+            <EntityTypeMapping TypeName="DB_HR_ManagerModel.TBL_HR_Message">
+              <MappingFragment StoreEntitySet="TBL_HR_Message">
+                <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_HR_Department">
+            <EntityTypeMapping TypeName="DB_HR_ManagerModel.TBL_HR_Department">
+              <MappingFragment StoreEntitySet="TBL_HR_Department">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
