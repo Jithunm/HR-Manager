@@ -91,7 +91,7 @@ namespace HR_Manager.Controllers
                 Logger.WriteLog(messageObj.errorMessage2);
                     return RedirectToAction("EmployeeView", TempData["Message"] =  messageObj.errorMessage2);
                 }   
-        }
+        } 
     
         public ActionResult EmployeeDelete(string empid)
         {

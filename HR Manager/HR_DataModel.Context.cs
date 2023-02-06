@@ -29,5 +29,7 @@ namespace HR_Manager
         public virtual DbSet<TBL_HR_Employee> TBL_HR_Employee { get; set; }
         public virtual DbSet<TBL_HR_Message> TBL_HR_Message { get; set; }
         public virtual DbSet<TBL_HR_Department> TBL_HR_Department { get; set; }
+
+        public System.Data.Entity.DbSet<HR_Manager.Models.SignUpModel> SignUpModels { get; set; }
     }
 }
