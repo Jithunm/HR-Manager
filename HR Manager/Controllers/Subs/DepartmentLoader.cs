@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace HR_Manager.Controllers.Subs
 {
-    public class DepartmentController : Controller
+    public class DepartmentLoader : Controller
     {
         // GET: Department
         DB_HR_ManagerContext context = new DB_HR_ManagerContext();

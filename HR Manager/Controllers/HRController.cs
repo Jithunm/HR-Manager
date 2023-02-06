@@ -15,8 +15,8 @@ namespace HR_Manager.Controllers
         DB_HR_ManagerContext context = new DB_HR_ManagerContext();
         DateTime currentdate = DateTime.Now;
         Guid obj = Guid.NewGuid();
-        MessageController messageObj = new MessageController();
-        DepartmentController deptObj = new DepartmentController();
+        MessageBox messageObj = new MessageBox();
+        DepartmentLoader deptObj = new DepartmentLoader();
        
     public ActionResult EmployeeView()
         {
@@ -50,8 +50,9 @@ namespace HR_Manager.Controllers
             }
             catch (Exception ex)
             {
-
+                Logger.WriteLog(messageObj.errorMessage2);
                 return RedirectToAction("EmployeeView", TempData["Message"] = messageObj.errorMessage1);
+
             }
             
         }
@@ -87,6 +88,7 @@ namespace HR_Manager.Controllers
                 }
                 catch (Exception ex)
                 {
+                Logger.WriteLog(messageObj.errorMessage2);
                     return RedirectToAction("EmployeeView", TempData["Message"] =  messageObj.errorMessage2);
                 }   
         }
@@ -96,7 +98,8 @@ namespace HR_Manager.Controllers
             var dataset = context.TBL_HR_Employee.Where(x => x.EmpID == empid).FirstOrDefault();
             context.TBL_HR_Employee.Remove(dataset);
             context.SaveChanges();
-            return RedirectToAction("EmployeeView",TempData["Message"]=messageObj.deleteMessage1);
+            Logger.WriteLog(messageObj.deletelogMessage);
+            return RedirectToAction("EmployeeView",TempData["Message"]=messageObj.deletelogMessage);
         }
 
     }

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace HR_Manager.Controllers.Subs
 {
-    public class MessageController : Controller
+    public class MessageBox
     {
 
 
@@ -16,6 +16,7 @@ namespace HR_Manager.Controllers.Subs
         public string errorMessage2 = "Data not Updated! Check logs for further details";
         public string deleteMessage1 = "Data deletion Success!";
         public string deleteMessage2 = "Data deletion failed! Check logs for further details";
+        public string deletelogMessage = "Employee deleted sucessfully";
        
 
     }
