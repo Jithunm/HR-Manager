@@ -10,7 +10,7 @@ namespace HR_Manager.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
-            //ConfigureAuth(app);
+            ConfigureAuth(app);
         }
 
     }

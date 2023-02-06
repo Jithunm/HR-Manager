@@ -14,11 +14,11 @@ namespace HR_Manager.Models
         [Display(Name="Name")]
         public string name { get; set; }
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string email { get; set; }
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string password { get; set; }
     }

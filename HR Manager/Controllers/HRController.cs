@@ -8,7 +8,7 @@ using HR_Manager.Controllers.Subs;
 
 namespace HR_Manager.Controllers
 {
-    
+    [Authorize]
     public class HRController : Controller
     {
 

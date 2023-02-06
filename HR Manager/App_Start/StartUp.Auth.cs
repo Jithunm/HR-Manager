@@ -18,7 +18,7 @@ namespace HR_Manager.App_Start
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
                 LogoutPath = new PathString("/Account/LogOff"),
-                ExpireTimeSpan = TimeSpan.FromMinutes(30)
+                ExpireTimeSpan = TimeSpan.FromMinutes(30.0)
             });
             ;
             ;

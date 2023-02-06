@@ -8,8 +8,6 @@ namespace HR_Manager.Controllers.Subs
 {
     public class MessageBox
     {
-
-
         public string successMessage1 = "Employee Added Successfully!";
         public  string successMessage2 = "Data Updated Successfully!";
         public string errorMessage1 = "Data not Inserted! Check logs for further details";
@@ -17,7 +15,8 @@ namespace HR_Manager.Controllers.Subs
         public string deleteMessage1 = "Data deletion Success!";
         public string deleteMessage2 = "Data deletion failed! Check logs for further details";
         public string deletelogMessage = "Employee deleted sucessfully";
-       
+        public string signUpSuccess = "Registration is successfull! Try Login with Credentials!";
+        public string signUpSuccessLog = "New user account created with UserName :";
 
     }
 }
