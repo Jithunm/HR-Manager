@@ -12,7 +12,7 @@ namespace HR_Manager.Models
         [Display(Name ="Email")]
         public string email { get; set; }
         [Required]
-        [Display(Name = "PassWord")]
+        [Display(Name = "Password")]
         public string password { get; set; }
 
     }
