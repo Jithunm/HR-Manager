@@ -11,15 +11,26 @@
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 </head>
 <body>
-    </body>
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: darkslategrey;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</body>
   
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - THE HR MANAGER Co.in. All Rights Reserved.</p>
-        </footer>
+<div class="container body-content">
+    @RenderBody()
+
+    <div class="footer" >
+        <p>&copy; @DateTime.Now.Year - THE HR MANAGER Co.in. All Rights Reserved.</p>
     </div>
+</div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
