@@ -36,7 +36,9 @@ namespace HR_Manager.Controllers
             }
             catch(Exception ex)
             {
-                ModelState.AddModelError(string.Empty, ex.Message);
+                TempData["ErrorMessage"] = messageBox.signUpErrorLog;
+                Logger.WriteLog($"{messageBox.signUpErrorLog} : ERROR {ex.Message}");
+
             }
             return View();
         }
@@ -137,7 +139,7 @@ namespace HR_Manager.Controllers
                 throw ex;
             }
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("EmployeeView", "HR");
         }
         [HttpGet]
         public ActionResult LogOff()

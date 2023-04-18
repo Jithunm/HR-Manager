@@ -17,6 +17,7 @@ namespace HR_Manager.Controllers.Subs
         public string deletelogMessage = "Employee deleted sucessfully";
         public string signUpSuccess = "Registration is successfull! Try Login with Credentials!";
         public string signUpSuccessLog = "New user account created with UserName :";
+        public string signUpErrorLog = "Account creation failed! Provide valid UserName and PassWord. If the issue still persists, please check logs";
 
     }
 }
