@@ -10,7 +10,7 @@ namespace HR_Manager.Repository
     public interface IEmployeeRepository
     {
        IEnumerable<TBL_HR_Employee> GetEmployees();
-        void InsertEmployee(TBL_HR_Employee model);
+        string InsertEmployee(TBL_HR_Employee model);
         TBL_HR_Employee GetEmployeeByID(string id);
         string UpdateEmployee(TBL_HR_Employee model);
         string DeleteEmployee(string empid);
@@ -27,10 +27,11 @@ namespace HR_Manager.Repository
             var employeeData = context.TBL_EMPLOYEE.ToList();
             return employeeData;
         }
-       public void InsertEmployee(TBL_HR_Employee model)
+       public string InsertEmployee(TBL_HR_Employee model)
         {
             context.TBL_EMPLOYEE.Add(model);
             context.SaveChanges();
+            return messageboxObj.successMessage1;
         }
         public TBL_HR_Employee GetEmployeeID(string empid)
         {

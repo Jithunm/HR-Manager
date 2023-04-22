@@ -12,9 +12,7 @@ namespace HR_Manager.Controllers
 {
     [Authorize]
     public class HRController : Controller
-    {
-
-        DB_HR_ManagerContext context = new DB_HR_ManagerContext();
+    { 
         EmployeeRepository empRepo = new EmployeeRepository();
         DateTime currentdate = DateTime.Now;
         Guid obj = Guid.NewGuid();
@@ -42,8 +40,8 @@ namespace HR_Manager.Controllers
                 {
                     var tempid = obj.ToString();
                     model.EmpID = tempid;
-                    empRepo.InsertEmployee(model);
-                    return RedirectToAction("EmployeeView", TempData["Message"] = messageObj.successMessage1);
+                    
+                    return RedirectToAction("EmployeeView", TempData["Message"] = empRepo.InsertEmployee(model));
                 }
                 else
                 {
