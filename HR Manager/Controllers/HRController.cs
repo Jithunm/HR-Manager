@@ -7,6 +7,7 @@ using HR_Manager.Models;
 using HR_Manager.Controllers.Subs;
 using HR_Manager.Repository;
 using HR_Manager.DBContexts;
+using System.Threading.Tasks;
 
 namespace HR_Manager.Controllers
 {
@@ -19,10 +20,10 @@ namespace HR_Manager.Controllers
         MessageBox messageObj = new MessageBox();
         DepartmentLoader deptObj = new DepartmentLoader();
        
-    public ActionResult EmployeeView()
+    public async Task<ActionResult> EmployeeView()
         {
           
-            IEnumerable<TBL_HR_Employee> employeeData = empRepo.GetEmployees();
+            IEnumerable<TBL_HR_Employee> employeeData = await empRepo.GetEmployees();
             return View(employeeData);
         }
         [HttpGet]
@@ -32,7 +33,7 @@ namespace HR_Manager.Controllers
         }
 
         [HttpPost]
-        public ActionResult EmployeeInsert(TBL_HR_Employee model)
+        public async Task<ActionResult> EmployeeInsert(TBL_HR_Employee model)
         {
             try
             {
@@ -41,7 +42,7 @@ namespace HR_Manager.Controllers
                     var tempid = obj.ToString();
                     model.EmpID = tempid;
                     
-                    return RedirectToAction("EmployeeView", TempData["Message"] = empRepo.InsertEmployee(model));
+                    return RedirectToAction("EmployeeView", TempData["Message"] =await empRepo.InsertEmployee(model));
                 }
                 else
                 {
@@ -58,21 +59,20 @@ namespace HR_Manager.Controllers
             
         }
         [HttpGet]
-        public ActionResult EmployeeEdit(string empid)
+        public async Task<ActionResult> EmployeeEdit(string empid)
         {
-            ViewBag.data = deptObj.DepartMentLoader();  
-            return View(empRepo.GetEmployeeByID(empid));
+            ViewBag.data = deptObj.DepartMentLoader();   
+            return View(await empRepo.GetEmployeeByID(empid));
         }
         [HttpPost]
-        public ActionResult EmployeeEdit(TBL_HR_Employee model)
+        public async Task<ActionResult> EmployeeEdit(TBL_HR_Employee model)
         {
             
-
                 try
                 {
                     if (ModelState.IsValid)
                     {   
-                    return RedirectToAction("EmployeeView", TempData["Message"] = empRepo.UpdateEmployee(model));
+                    return RedirectToAction("EmployeeView", TempData["Message"] = await empRepo.UpdateEmployee(model));
                     }
                  else
                     {
@@ -87,10 +87,10 @@ namespace HR_Manager.Controllers
                 }   
         } 
     
-        public ActionResult EmployeeDelete(string empid)
+        public async Task<ActionResult> EmployeeDelete(string empid)
         { 
             Logger.WriteLog(messageObj.deletelogMessage);
-            return RedirectToAction("EmployeeView",TempData["Message"]=empRepo.DeleteEmployee(empid));
+            return RedirectToAction("EmployeeView",TempData["Message"]= await empRepo.DeleteEmployee(empid));
         }
 
     }

@@ -9,7 +9,7 @@ namespace HR_Manager.Controllers.Subs
     public class MessageBox
     {
         public string successMessage1 = "Employee Added Successfully!";
-        public  string successMessage2 = "Data Updated Successfully!";
+        public  string updateSuccess = "Data Updated Successfully!";
         public string insertError = "Data not Inserted! Check logs for further details";
         public string updateError = "Data not Updated! Check logs for further details";
         public string deleteSuccess = "Data deletion Success!";
