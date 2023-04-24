@@ -11,12 +11,12 @@ namespace HR_Manager.Repository
     {
        IEnumerable<TBL_HR_Employee> GetEmployees();
         string InsertEmployee(TBL_HR_Employee model);
-        TBL_HR_Employee GetEmployeeByID(string id);
+        public TBL_HR_Employee GetEmployeeByID(string empid);
         string UpdateEmployee(TBL_HR_Employee model);
         string DeleteEmployee(string empid);
         
     }
-    public class EmployeeRepository 
+    public class EmployeeRepository :IEmployeeRepository
     {
         EmployeeContext context = new EmployeeContext();
         MessageBox messageboxObj = new MessageBox();
@@ -33,14 +33,14 @@ namespace HR_Manager.Repository
             context.SaveChanges();
             return messageboxObj.successMessage1;
         }
-        public TBL_HR_Employee GetEmployeeID(string empid)
+        public TBL_HR_Employee GetEmployeeByID(string empid)
         {
             var dataset = context.TBL_EMPLOYEE.Where(x => x.EmpID == empid).FirstOrDefault();
             return dataset;
         }
         public string UpdateEmployee(TBL_HR_Employee model)
         {
-            var dataset = GetEmployeeID(model.EmpID);
+            var dataset = GetEmployeeByID(model.EmpID);
             try
             {
                 dataset.EmpFirstName = model.EmpFirstName;

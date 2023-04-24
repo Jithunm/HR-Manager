@@ -61,7 +61,7 @@ namespace HR_Manager.Controllers
         public ActionResult EmployeeEdit(string empid)
         {
             ViewBag.data = deptObj.DepartMentLoader();  
-            return View(empRepo.GetEmployeeID(empid));
+            return View(empRepo.GetEmployeeByID(empid));
         }
         [HttpPost]
         public ActionResult EmployeeEdit(TBL_HR_Employee model)
