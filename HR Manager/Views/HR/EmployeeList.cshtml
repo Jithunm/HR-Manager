@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HR_Manager.TBL_HR_Employee>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpRefID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpDepartment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpDOJ)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpRefID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpDepartment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpDOJ)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmpID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmpID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmpID })
+        </td>
+    </tr>
+}
+
+</table>
