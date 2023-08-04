@@ -4,7 +4,10 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     <LangVersion>preview</LangVersion>
 >>>>>>> Stashed changes
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
